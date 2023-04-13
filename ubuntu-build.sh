@@ -58,3 +58,24 @@ PKG_CONFIG_LIBDIR=/tmp/v8/lib/pkgconfig cmake .. \
  -DGDAL_USE_SPATIALITE=ON \
  -DJAVA_INCLUDE_PATH2=/usr/lib/jvm/java-11-openjdk-amd64/include/linux/ \
  -DJAVA_AWT_INCLUDE_PATH=/usr/lib/jvm/java-11-openjdk-amd64/include/
+ 
+ ---spatialite sqlite3 on, iconv off
+ PKG_CONFIG_LIBDIR=/tmp/v8/lib/pkgconfig cmake .. \
+ -DUSE_CCACHE=ON \
+ -DCMAKE_INSTALL_PREFIX=/tmp/v8 \
+ -DCMAKE_SYSTEM_NAME=Android \
+ -DCMAKE_ANDROID_NDK=$ANDROID_NDK \
+ -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a \
+ -DCMAKE_SYSTEM_VERSION=24 \
+ "-DCMAKE_PREFIX_PATH=/tmp/v8;$NDK_TOOLCHAIN/sysroot/usr/" \
+ -DCMAKE_FIND_ROOT_PATH_MODE_INCLUDE=NEVER \
+ -DCMAKE_FIND_ROOT_PATH_MODE_LIBRARY=NEVER \
+ -DCMAKE_FIND_USE_CMAKE_SYSTEM_PATH=NO \
+ -DSFCGAL_CONFIG=disabled \
+ -DHDF5_C_COMPILER_EXECUTABLE=disabled \
+ -DHDF5_CXX_COMPILER_EXECUTABLE=disabled \
+ -DGDAL_USE_SQLITE3=ON \
+ -DGDAL_USE_SPATIALITE=ON \
+ -DGDAL_USE_ICONV=OFF \
+ -DJAVA_INCLUDE_PATH2=/usr/lib/jvm/java-11-openjdk-amd64/include/linux/ \
+ -DJAVA_AWT_INCLUDE_PATH=/usr/lib/jvm/java-11-openjdk-amd64/include/
